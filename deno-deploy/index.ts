@@ -19,5 +19,9 @@ serve((req: Request) => {
     return new Response("Invalid signature", { status: 401 });
   }
 
+  console.log("The signature was valid");
+
+  // do work
+
   new Response(null, { status: 200 });
 });
