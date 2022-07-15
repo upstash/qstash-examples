@@ -1,15 +1,15 @@
 import { serve } from "https://deno.land/std@0.142.0/http/server.ts";
-import { Receiver } from "https://deno.land/x/upstash_qstash/mod.ts";
+import { Receiver } from "https://deno.land/x/upstash_qstash@v0.1.4/mod.ts";
 
-serve((req: Request) => {
+serve(async (req: Request) => {
   const r = new Receiver({
     currentSigningKey: Deno.env.get("QSTASH_CURRENT_SIGNING_KEY")!,
     nextSigningKey: Deno.env.get("QSTASH_NEXT_SIGNING_KEY")!,
   });
 
-  const isValid = r.verify({
+  const isValid = await r.verify({
     signature: req.headers.get("Upstash-Signature")!,
-    body: req.body!,
+    body: await req.text(),
   }).catch((err: Error) => {
     console.error(err);
     return false;
@@ -23,5 +23,5 @@ serve((req: Request) => {
 
   // do work
 
-  new Response(null, { status: 200 });
+  new Response("OK", { status: 200 });
 });

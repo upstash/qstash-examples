@@ -2,6 +2,7 @@
 
 /.next/
 /out/
+dist/
 
 # production
 /build
@@ -23,6 +24,7 @@ yarn-error.log*
 .vercel
 
 
-./**/package-lock.json
-./**/yarn.lock
-./**/pnpm-lock.yaml
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
