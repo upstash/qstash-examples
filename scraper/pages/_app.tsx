@@ -22,13 +22,15 @@ function MyApp({ Component, pageProps }: AppProps) {
             },
             {
               name: "scraper",
-              url:"https://github.com/upstash/qstash-examples/tree/main/scraper"
-            }
+              url:
+                "https://github.com/upstash/qstash-examples/tree/main/scraper",
+            },
           ],
         }}
       />
 
-      {/*<ReadBlogPost>
+      {
+        /*<ReadBlogPost>
         This is a sample project for the blogpost{" "}
         <a
           className="text-primary-600"
@@ -38,7 +40,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         >
           Example Post
         </a>
-      </ReadBlogPost>*/}
+      </ReadBlogPost>*/
+      }
 
       <div className="mx-auto w-full max-w-3xl py-14 px-6">
         <Component {...pageProps} />
