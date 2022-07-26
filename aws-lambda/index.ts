@@ -2,7 +2,7 @@ import { APIGatewayEvent, APIGatewayProxyResult, Context } from "aws-lambda";
 import { createHash, createHmac } from "node:crypto";
 export const handler = async (
   event: APIGatewayEvent,
-  context: Context,
+  _context: Context,
 ): Promise<APIGatewayProxyResult> => {
   const signature = event.headers["upstash-signature"]!;
   const currentSigningKey = process.env["QSTASH_CURRENT_SIGNING_KEY"];
@@ -39,12 +39,12 @@ export const handler = async (
  * @param body - The raw body of the request
  * @param url - The public URL of the lambda function
  */
-async function verify(
+function verify(
   jwt: string,
   signingKey: string,
   body: string | null,
   url: string,
-): Promise<void> {
+): void {
   const split = jwt.split(".");
   if (split.length != 3) {
     throw new Error("Invalid JWT");
