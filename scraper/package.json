@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/plots": "^1.2.0",
     "@upstash/qstash": "^0.1.5",
     "@upstash/redis": "^1.10.2",
     "next": "12.2.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recharts": "^2.1.13"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",

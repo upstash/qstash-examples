@@ -26,4 +26,6 @@ async function handler(_req: NextApiRequest, res: NextApiResponse) {
     res.end();
   }
 }
- export default verifySignature(handler);
+ export default verifySignature(handler, {
+    currentSigningKey: process.env.QSTASH_CURRENT_SIGNING_KEY
+ });
