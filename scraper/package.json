@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ant-design/plots": "^1.2.0",
-    "@upstash/qstash": "^0.1.5",
+    "@upstash/qstash": "^0.1.6",
     "@upstash/redis": "^1.10.2",
     "next": "12.2.3",
     "react": "18.2.0",
