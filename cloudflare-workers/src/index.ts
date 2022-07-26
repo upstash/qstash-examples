@@ -8,7 +8,7 @@ export default {
   async fetch(
     request: Request,
     env: Env,
-    ctx: ExecutionContext,
+    _ctx: ExecutionContext,
   ): Promise<Response> {
     const c = new Receiver({
       currentSigningKey: env.QSTASH_CURRENT_SIGNING_KEY,

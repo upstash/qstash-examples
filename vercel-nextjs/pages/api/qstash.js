@@ -1,6 +1,6 @@
 import { verifySignature } from "@upstash/qstash/nextjs";
 
-async function handler(req, res) {
+function handler(_req, res) {
   console.log("If this is printed, the signature has already been verified");
 
   // do stuff
