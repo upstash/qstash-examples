@@ -16,7 +16,7 @@ type Prices = {
   value: number
 }[]
 
-const Home: NextPage = ({prices}: {prices:{ts: number, value:number}[]}) => {
+const Home: NextPage<{prices:Prices}> = ({prices}) => {
   return (
     <>
       <main>
