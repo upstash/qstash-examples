@@ -1,3 +1,5 @@
+// @@@SNIPSTART qstash-scraper-api
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { Redis } from "@upstash/redis";
 
@@ -33,3 +35,5 @@ export const config = {
     bodyParser: false,
   },
 };
+
+// @@@SNIPEND
