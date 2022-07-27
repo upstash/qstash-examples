@@ -27,9 +27,9 @@ async function handler(_req: NextApiRequest, res: NextApiResponse) {
      * }
      * ```
      */
-    const bitcoinPrice = await fetch("https://blockchain.info/ticker").then(
-      (r) => r.json(),
-    ).then((r) => r["USD"]["last"]) as number;
+    const raw = await fetch("https://blockchain.info/ticker");
+    const prices = await raw.json();
+    const bitcoinPrice = prices["USD"]["last"] as number;
 
     /**
      * After we have loaded the current bitcoin price, we can store it in the
