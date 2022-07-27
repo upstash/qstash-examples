@@ -11,7 +11,8 @@ import { verifySignature } from "@upstash/qstash/nextjs";
 const redis = Redis.fromEnv();
 
 /**
- * Load the current bitcoin price in USD and store it in our database at the current timestamp
+ * Load the current bitcoin price in USD and store it in our database at the
+ * current timestamp
  */
 async function handler(_req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -31,7 +32,8 @@ async function handler(_req: NextApiRequest, res: NextApiResponse) {
     ).then((r) => r["USD"]["last"]) as number;
 
     /**
-     * After we have loaded the current bitcoin price, we can store it in the database together with the current time
+     * After we have loaded the current bitcoin price, we can store it in the
+     * database together with the current time
      */
     await redis.zadd("bitcoin-prices", {
       score: Date.now(),
@@ -47,12 +49,14 @@ async function handler(_req: NextApiRequest, res: NextApiResponse) {
 }
 
 /**
- * Wrap your handler with `verifySignature` to automatically reject all requests that are not coming from Upstash.
+ * Wrap your handler with `verifySignature` to automatically reject all
+ * requests that are not coming from Upstash.
  */
 export default verifySignature(handler);
 
 /**
- * To verify the authenticity of the incoming request in the `verifySignature` function, we need access to the raw request body.
+ * To verify the authenticity of the incoming request in the `verifySignature`
+ * function, we need access to the raw request body.
  */
 export const config = {
   api: {
