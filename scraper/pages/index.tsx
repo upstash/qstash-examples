@@ -23,7 +23,7 @@ const Home: NextPage<{ prices: Price[] }> = ({ prices }) => {
         <header>
           <h1 className="text-4xl font-bold">
             <span className="text-primary-500">
-              qStash scheduled-updater example
+              qStash scheduled-db-updates example
             </span>
           </h1>
 
