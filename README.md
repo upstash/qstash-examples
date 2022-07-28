@@ -18,7 +18,12 @@
 
 ## fly.io-go
 
-[Documentation](https://docs.upstash.com/qstash/quickstarts/fly-io)/go
+[Documentation](https://docs.upstash.com/qstash/quickstarts/fly-io/go)
+
+
+## Periodic Data Updates with Next.js and Vercel Serverless Functions
+
+[Recipe](https://docs.upstash.com/qstash/recipes/periodic-data-updates)
 
 ### For internal use, please ignore:
 
