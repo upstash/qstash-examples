@@ -55,6 +55,9 @@ const Home: NextPage<{ prices: Price[] }> = ({ prices }) => {
           xField="time"
           yField="value"
           color="#10b981"
+          xAxis={{
+            tickCount: 5,
+          }}
           yAxis={{
             label: {
               formatter: (value) => `$${parseFloat(value).toLocaleString()}`,
