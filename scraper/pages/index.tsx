@@ -1,4 +1,4 @@
-import type { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
+import type { GetStaticPropsResult, NextPage } from "next";
 import { Line } from "@ant-design/plots";
 import { Redis } from "@upstash/redis";
 import Link from "next/link";
@@ -22,16 +22,18 @@ const Home: NextPage<{ prices: Price[] }> = ({ prices }) => {
       <main className="space-y-10">
         <header>
           <h1 className="text-4xl font-bold">
-            <span className="text-primary-500">qStash scraper example</span>
+            <span className="text-primary-500">
+              qStash scheduled-fetcher example
+            </span>
           </h1>
 
           <p className="mt-4">
             This is an example of using qStash to trigger Next.js serverless
-            functions to scrape an external API using CRON schedules
+            functions to fetch updates from an external API using CRON schedules
           </p>
 
           <p className="mt-4">
-            The api route <code>/api/scrape</code>{" "}
+            The api route <code>/api/cron</code>{" "}
             is triggered every 10 minutes by{" "}
             <Link href="https://console.upstash.com/qstash">
               <a className="border-b border-primary-500 hover:text-primary-500">

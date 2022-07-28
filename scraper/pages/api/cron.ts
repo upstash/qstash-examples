@@ -1,4 +1,4 @@
-// @@@SNIPSTART qstash-scraper-api
+// @@@SNIPSTART qstash-scheduled-fetcher-api
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { Redis } from "@upstash/redis";

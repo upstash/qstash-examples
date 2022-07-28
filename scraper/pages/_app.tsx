@@ -21,9 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
               url: "https://github.com/upstash/qstash-examples",
             },
             {
-              name: "scraper",
+              name: "scheduled-fetcher",
               url:
-                "https://github.com/upstash/qstash-examples/tree/main/scraper",
+                "https://github.com/upstash/qstash-examples/tree/main/scheduled-fetcher",
             },
           ],
         }}
