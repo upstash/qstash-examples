@@ -1,4 +1,4 @@
-// @@@SNIPSTART qstash-scheduled-db-updates-api
+// @@@SNIPSTART qstash-periodic-data-updates-api
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { Redis } from "@upstash/redis";
