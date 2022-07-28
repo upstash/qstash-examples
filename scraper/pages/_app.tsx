@@ -21,9 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
               url: "https://github.com/upstash/qstash-examples",
             },
             {
-              name: "scheduled-fetcher",
+              name: "scheduled-updater",
               url:
-                "https://github.com/upstash/qstash-examples/tree/main/scheduled-fetcher",
+                "https://github.com/upstash/qstash-examples/tree/main/scheduled-updater",
             },
           ],
         }}
