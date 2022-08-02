@@ -4,20 +4,26 @@ export const handler = async (
   event: APIGatewayEvent,
   _context: Context,
 ): Promise<APIGatewayProxyResult> => {
+  console.log("Custom message")
+
   const signature = event.headers["upstash-signature"]!;
   const currentSigningKey = process.env["QSTASH_CURRENT_SIGNING_KEY"];
   const nextSigningKey = process.env["QSTASH_NEXT_SIGNING_KEY"];
   const url = `https://${event.requestContext.domainName}`;
 
+  console.log({ signature, currentSigningKey, nextSigningKey, url })
   try {
     // Try to verify the signature with the current signing key and if that fails, try the next signing key
     // This allows you to roll your signing keys once without downtime
-    await verify(signature, currentSigningKey, event.body, url).catch((err) => {
+    try {
+      verify(signature, currentSigningKey, event.body, url)
+    } catch (err) {
       console.error(
         `Failed to verify signature with current signing key: ${err}`,
       );
-      return verify(signature, nextSigningKey, event.body, url);
-    });
+      verify(signature, nextSigningKey, event.body, url);
+
+    }
   } catch (err) {
     return {
       statusCode: 500,
@@ -26,7 +32,7 @@ export const handler = async (
   }
 
   // Add your business logic here
-
+  console.log("Doing work")
   return {
     statusCode: 200,
     body: "OK",
@@ -53,9 +59,9 @@ function verify(
 
   if (
     signature !=
-      createHmac("sha256", signingKey)
-        .update(`${header}.${payload}`)
-        .digest("base64url")
+    createHmac("sha256", signingKey)
+      .update(`${header}.${payload}`)
+      .digest("base64url")
   ) {
     throw new Error("Invalid JWT signature");
   }
@@ -86,7 +92,7 @@ function verify(
   if (body != null) {
     if (
       p.body.replace(/=+$/, "") !=
-        createHash("sha256").update(body).digest("base64url")
+      createHash("sha256").update(body).digest("base64url")
     ) {
       throw new Error("body hash does not match");
     }
