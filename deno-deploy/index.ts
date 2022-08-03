@@ -23,5 +23,5 @@ serve(async (req: Request) => {
 
   // do work
 
-  new Response("OK", { status: 200 });
+  return new Response("OK", { status: 200 });
 });
