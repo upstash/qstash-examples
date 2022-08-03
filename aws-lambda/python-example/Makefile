@@ -2,8 +2,8 @@ zip:
 	rm -rf dist
 	pip3 install --target ./dist pyjwt
 	cp lambda_function.py ./dist/lambda_function.py
-	cd dist
-	zip -r lambda.zip .
+	cd dist && zip -r lambda.zip .
+	mv ./dist/lambda.zip ./
 	
 
 deploy: zip
