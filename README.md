@@ -2,7 +2,7 @@
 
 ## aws-lambda
 
-[Documentation](https://docs.upstash.com/qstash/quickstarts/aws-lambda)
+[Documentation](https://docs.upstash.com/qstash/quickstarts/aws-lambda/qstash/quickstarts/aws-lambda/nodejs)
 
 ## cloudflare-workers
 
