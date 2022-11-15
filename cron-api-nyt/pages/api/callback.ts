@@ -6,11 +6,7 @@ const botConfig = {
   url: "https://picsum.photos/200", // random image
 };
 
-// Q: How to work with the Discord Webhook API?
-// A: https://gist.github.com/Birdie0/78ee79402a4301b1faf412ab5f1cdcf9
-// Q: How does the NYTimes response look like?
-// A: https://developer.nytimes.com/docs/most-popular-product/1/routes/viewed/%7Bperiod%7D.json/get
-const sendMessage = (json: any) => {
+async function sendMessage(json: any) {
   return fetch(process.env.DISCORD_WEBHOOK!, {
     method: "POST",
     headers: {
@@ -19,6 +15,7 @@ const sendMessage = (json: any) => {
     body: JSON.stringify({
       username: botConfig.name,
       avatar_url: botConfig.url,
+      // use only the five   most popular articles
       embeds: json.results.slice(0, 5).map((article: any) => {
         return {
           title: article.title,
@@ -28,7 +25,7 @@ const sendMessage = (json: any) => {
       }),
     }),
   });
-};
+}
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
