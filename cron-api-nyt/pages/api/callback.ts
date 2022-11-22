@@ -15,7 +15,7 @@ async function sendMessage(json: any) {
     body: JSON.stringify({
       username: botConfig.name,
       avatar_url: botConfig.url,
-      // use only the five   most popular articles
+      // use only the five most popular articles of the day
       embeds: json.results.slice(0, 5).map((article: any) => {
         return {
           title: article.title,
