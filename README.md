@@ -1,5 +1,7 @@
 # qStash examples
 
+This repo is depracated, see https://github.com/upstash/examples/tree/main/examples
+
 ## aws-lambda
 
 [Documentation](https://docs.upstash.com/qstash/quickstarts/aws-lambda/qstash/quickstarts/aws-lambda/nodejs)
